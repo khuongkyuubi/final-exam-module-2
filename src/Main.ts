@@ -77,7 +77,11 @@ showList();
 
 addProduct(new Product(564, "Dell", category.LAPTOP, 13522, 16, "Laptop Dell", new Date()))
 
-searchProduct("Samsung")
+searchProduct("Samsung");
+
+editProduct("Samsung", new Product(1235, "Samsung S7", category.PHONE, 12355, 17, "Samsung mới", new Date()));
+
+deleteProduct("Xiaomi");
 
 
 
