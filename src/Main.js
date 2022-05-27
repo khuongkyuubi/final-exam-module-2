@@ -27,18 +27,19 @@ var searchProduct = function (name) {
     console.table(searchProduct);
 };
 var editProduct = function (name, editProduct) {
-    var product = productManager.productList.find(function (product) {
+    var product = productManager.productList.filter(function (product) {
         return product["name"] === name;
     });
-    var index = productManager.productList.indexOf(product);
+    var index = productManager.productList.indexOf(product[0]);
     productManager.productList.splice(index, 1, editProduct);
     showList();
 };
 var deleteProduct = function (name) {
-    var product = productManager.productList.find(function (product) {
+    var product = productManager.productList.filter(function (product) {
         return product["name"] === name;
     });
-    var index = productManager.productList.indexOf(product);
+    var index = productManager.productList.indexOf(product[0]);
     productManager.productList.splice(index, 1);
     showList();
 };
+showList();

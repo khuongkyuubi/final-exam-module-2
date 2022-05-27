@@ -34,26 +34,31 @@ const searchProduct = (name: string): void => {
 
 
 }
-const editProduct = (name: string, editProduct : Product): void => {
-    let product = productManager.productList.find((product) => {
+const editProduct = (name: string, editProduct: Product): void => {
+    let product = productManager.productList.filter((product) => {
         return product["name"] === name;
     })
-    let index = productManager.productList.indexOf(product);
+    let index = productManager.productList.indexOf(product[0]);
 
     productManager.productList.splice(index, 1, editProduct);
     showList();
 }
 
 const deleteProduct = (name: string): void => {
-    let product = productManager.productList.find((product) => {
+    let product = productManager.productList.filter((product) => {
         return product["name"] === name;
     })
-    let index = productManager.productList.indexOf(product);
+
+    let index = productManager.productList.indexOf(product[0]);
 
     productManager.productList.splice(index, 1);
     showList();
 
 }
+
+
+showList();
+
 
 
 
