@@ -58,8 +58,13 @@ var deleteProduct = function (name) {
         console.log("Lỗi khi xóa ", err);
     }
 };
+console.log("Show list");
 showList();
+console.log("Thêm sản phẩm");
 addProduct(new Product_js_1.Product(564, "Dell", category.LAPTOP, 13522, 16, "Laptop Dell", new Date()));
+console.log("Tìm sản phẩm");
 searchProduct("Samsung");
+console.log("Sửa sản phẩm");
 editProduct("Samsung", new Product_js_1.Product(1235, "Samsung S7", category.PHONE, 12355, 17, "Samsung mới", new Date()));
+console.log("Xóa sản phẩm");
 deleteProduct("Xiaomi");
