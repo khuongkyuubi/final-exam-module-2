@@ -21,25 +21,43 @@ var addProduct = function (product) {
     showList();
 };
 var searchProduct = function (name) {
-    var searchProduct = productManager.productList.filter(function (product) {
-        return product["name"] === name;
-    });
-    console.table(searchProduct);
+    try {
+        var searchProduct_1 = productManager.productList.filter(function (product) {
+            return product["name"] === name;
+        });
+        console.table(searchProduct_1);
+    }
+    catch (err) {
+        console.log(err);
+        console.log("Không thể tìm thấy", name);
+    }
 };
 var editProduct = function (name, editProduct) {
-    var product = productManager.productList.filter(function (product) {
-        return product["name"] === name;
-    });
-    var index = productManager.productList.indexOf(product[0]);
-    productManager.productList.splice(index, 1, editProduct);
-    showList();
+    try {
+        var product = productManager.productList.filter(function (product) {
+            return product["name"] === name;
+        });
+        var index = productManager.productList.indexOf(product[0]);
+        productManager.productList.splice(index, 1, editProduct);
+        showList();
+    }
+    catch (err) {
+        console.log("Đã có lỗi khi sửa", err);
+    }
 };
 var deleteProduct = function (name) {
-    var product = productManager.productList.filter(function (product) {
-        return product["name"] === name;
-    });
-    var index = productManager.productList.indexOf(product[0]);
-    productManager.productList.splice(index, 1);
-    showList();
+    try {
+        var product = productManager.productList.filter(function (product) {
+            return product["name"] === name;
+        });
+        var index = productManager.productList.indexOf(product[0]);
+        productManager.productList.splice(index, 1);
+        showList();
+    }
+    catch (err) {
+        console.log("Lỗi khi xóa ", err);
+    }
 };
 showList();
+addProduct(new Product_js_1.Product(564, "Dell", category.LAPTOP, 13522, 16, "Laptop Dell", new Date()));
+searchProduct("Samsung");

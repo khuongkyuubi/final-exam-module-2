@@ -27,38 +27,57 @@ const addProduct = (product: Product): void => {
 }
 
 const searchProduct = (name: string): void => {
-    let searchProduct = productManager.productList.filter((product) => {
-        return product["name"] === name;
-    })
-    console.table(searchProduct);
+    try {
+        let searchProduct = productManager.productList.filter((product) => {
+            return product["name"] === name;
+        })
+        console.table(searchProduct);
+    } catch (err) {
+        console.log(err)
+        console.log("Không thể tìm thấy", name);
+
+    }
 
 
 }
 const editProduct = (name: string, editProduct: Product): void => {
-    let product = productManager.productList.filter((product) => {
-        return product["name"] === name;
-    })
-    let index = productManager.productList.indexOf(product[0]);
+    try {
+        let product = productManager.productList.filter((product) => {
+            return product["name"] === name;
+        })
+        let index = productManager.productList.indexOf(product[0]);
 
-    productManager.productList.splice(index, 1, editProduct);
-    showList();
+        productManager.productList.splice(index, 1, editProduct);
+        showList();
+    } catch (err) {
+        console.log("Đã có lỗi khi sửa", err)
+    }
+
 }
 
 const deleteProduct = (name: string): void => {
-    let product = productManager.productList.filter((product) => {
-        return product["name"] === name;
-    })
 
-    let index = productManager.productList.indexOf(product[0]);
+    try {
+        let product = productManager.productList.filter((product) => {
+            return product["name"] === name;
+        })
 
-    productManager.productList.splice(index, 1);
-    showList();
+        let index = productManager.productList.indexOf(product[0]);
 
+        productManager.productList.splice(index, 1);
+        showList();
+
+    } catch (err) {
+        console.log("Lỗi khi xóa ", err);
+    }
 }
 
 
 showList();
 
+addProduct(new Product(564, "Dell", category.LAPTOP, 13522, 16, "Laptop Dell", new Date()))
+
+searchProduct("Samsung")
 
 
 
