@@ -34,7 +34,7 @@ const searchProduct = (name: string): void => {
 
 
 }
-const editProduct = (name: string, editProduct : Product[]): void => {
+const editProduct = (name: string, editProduct : Product): void => {
     let product = productManager.productList.find((product) => {
         return product["name"] === name;
     })
